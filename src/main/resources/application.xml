@@ -2,22 +2,26 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="driver" class="java.lang.String">
+        <constructor-arg type="java.lang.String" value="Postgres"/>
+    </bean>
+
     <bean id="connectionPool" name="p1, p2, p4" class="ru.philimonov.springcourse.database.pool.ConnectionPool">
-        <constructor-arg value="postgres"/>
-        <constructor-arg value="10"/>
-        <constructor-arg>
+        <constructor-arg index="0" type="java.lang.String" value="postgres"/>
+        <constructor-arg index="1" type="java.lang.Integer" value="10"/>
+        <constructor-arg index="2" type="java.util.List">
             <list>
                 <value>--arg1=value1</value>
                 <value>--arg2=value2</value>
                 <value>--arg3=value3</value>
             </list>
         </constructor-arg>
-        <constructor-arg>
+        <constructor-arg index="3" type="java.util.Map">
             <map>
                 <entry key="url" value="postgresurl"/>
                 <entry key="password" value="password"/>
             </map>
         </constructor-arg>
     </bean>
-<!--    <bean id="connectionPool1" name="p3" class="ru.philimonov.springcourse.database.pool.ConnectionPool"/>-->
+    <!--    <bean id="connectionPool1" name="p3" class="ru.philimonov.springcourse.database.pool.ConnectionPool"/>-->
 </beans>

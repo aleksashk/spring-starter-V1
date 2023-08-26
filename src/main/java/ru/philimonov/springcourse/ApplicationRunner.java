@@ -10,5 +10,7 @@ public class ApplicationRunner {
         ApplicationContext context = new ClassPathXmlApplicationContext("application.xml");
         System.out.println(context.getBean("p4", ConnectionPool.class));
 
+        System.out.println(context.getBean("driver"));
+
     }
 }
