@@ -1,5 +1,6 @@
 package ru.philimonov.springcourse.database.repository;
 
+import ru.philimonov.springcourse.bpp.Auditing;
 import ru.philimonov.springcourse.bpp.InjectBean;
 import ru.philimonov.springcourse.bpp.Transaction;
 import ru.philimonov.springcourse.database.pool.ConnectionPool;
@@ -9,6 +10,7 @@ import javax.annotation.PostConstruct;
 import java.util.Optional;
 
 @Transaction
+@Auditing
 public class CompanyRepository implements CrudRepository<Integer, Company> {
 
     @InjectBean
