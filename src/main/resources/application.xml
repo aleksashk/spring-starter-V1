@@ -35,7 +35,7 @@
                 <entry key="driver" value="#{driver.substring(3)}"/>
                 <entry key="test" value="#{driver.length() > 10}"/>
                 <entry key="test1" value="#{driver.length() > T(Math).random()*10}"/>
-                <entry key="host" value="'${db.hosts}'.split(',')"/>
+                <entry key="hosts" value="#{'${db.hosts}'.split(',')}"/>
             </map>
         </property>
     </bean>
