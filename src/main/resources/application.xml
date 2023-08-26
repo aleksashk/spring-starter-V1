@@ -14,14 +14,20 @@
                 <value>--arg1=value1</value>
                 <value>--arg2=value2</value>
                 <value>--arg3=value3</value>
+                <ref bean="driver"/>
             </list>
         </constructor-arg>
         <constructor-arg index="3" type="java.util.Map">
             <map>
                 <entry key="url" value="postgresurl"/>
                 <entry key="password" value="password"/>
+                <entry key="driver" value-ref="driver"/>
             </map>
         </constructor-arg>
+    </bean>
+
+    <bean id="companyRepository" class="ru.philimonov.springcourse.database.repository.CompanyRepository">
+        <constructor-arg ref="p1"/>
     </bean>
     <!--    <bean id="connectionPool1" name="p3" class="ru.philimonov.springcourse.database.pool.ConnectionPool"/>-->
 </beans>
