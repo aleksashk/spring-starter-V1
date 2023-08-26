@@ -2,11 +2,15 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations" value="classpath:application.properties"/>
+    </bean>
     <bean id="driver" class="java.lang.String">
         <constructor-arg type="java.lang.String" value="Postgres"/>
     </bean>
 
-    <bean id="connectionPool" name="p1, p2, p4" class="ru.philimonov.springcourse.database.pool.ConnectionPool" init-method="init" destroy-method="destroy">
+    <bean id="connectionPool" name="p1, p2, p4" class="ru.philimonov.springcourse.database.pool.ConnectionPool"
+          init-method="init" destroy-method="destroy">
 
         <constructor-arg index="0" type="java.lang.String" value="postgres"/>
         <constructor-arg index="1" type="java.lang.Integer" value="10"/>
@@ -19,9 +23,9 @@
             </list>
         </constructor-arg>
         <constructor-arg index="3" type="java.util.Map">
-           <null/>
+            <null/>
         </constructor-arg>
-        <property name="properties" >
+        <property name="properties">
             <map>
                 <entry key="url" value="postgresurl"/>
                 <entry key="password" value="password"/>
@@ -30,7 +34,8 @@
         </property>
     </bean>
 
-    <bean id="companyRepository" class="ru.philimonov.springcourse.database.repository.CompanyRepository" factory-method="of">
+    <bean id="companyRepository" class="ru.philimonov.springcourse.database.repository.CompanyRepository"
+          factory-method="of">
         <constructor-arg ref="p1"/>
     </bean>
     <!--    <bean id="connectionPool1" name="p3" class="ru.philimonov.springcourse.database.pool.ConnectionPool"/>-->
