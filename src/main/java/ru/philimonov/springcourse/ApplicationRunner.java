@@ -5,6 +5,7 @@ import org.springframework.beans.BeansException;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import ru.philimonov.springcourse.database.pool.ConnectionPool;
 import ru.philimonov.springcourse.database.repository.CompanyRepository;
+import ru.philimonov.springcourse.database.repository.CrudRepository;
 
 public class ApplicationRunner {
     public static void main(String[] args) {
@@ -13,7 +14,7 @@ public class ApplicationRunner {
 
             System.out.println(context.getBean("driver"));
 
-            System.out.println(context.getBean("companyRepository", CompanyRepository.class));
+            System.out.println(context.getBean("companyRepository", CrudRepository.class));
         } catch (BeansException e) {
             throw new RuntimeException(e);
         }
