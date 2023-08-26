@@ -9,14 +9,14 @@
 
     <context:property-placeholder location="classpath:application.properties"/>
     <bean id="driver" class="java.lang.String">
-        <constructor-arg type="java.lang.String" value="Postgres"/>
+        <constructor-arg type="java.lang.String" value="${db.driver}"/>
     </bean>
 
     <bean id="connectionPool" name="p1, p2, p4" class="ru.philimonov.springcourse.database.pool.ConnectionPool"
           init-method="init" destroy-method="destroy">
 
-        <constructor-arg index="0" type="java.lang.String" value="postgres"/>
-        <constructor-arg index="1" type="java.lang.Integer" value="10"/>
+        <constructor-arg index="0" type="java.lang.String" value="${db.username}"/>
+        <constructor-arg index="1" type="java.lang.Integer" value="${db.pool.size}"/>
         <constructor-arg index="2" type="java.util.List">
             <list>
                 <value>--arg1=value1</value>
@@ -32,7 +32,10 @@
             <map>
                 <entry key="url" value="postgresurl"/>
                 <entry key="password" value="password"/>
-                <entry key="driver" value-ref="driver"/>
+                <entry key="driver" value="#{driver.substring(3)}"/>
+                <entry key="test" value="#{driver.length() > 10}"/>
+                <entry key="test1" value="#{driver.length() > T(Math).random()*10}"/>
+                <entry key="host" value="'${db.hosts}'.split(',')"/>
             </map>
         </property>
     </bean>
