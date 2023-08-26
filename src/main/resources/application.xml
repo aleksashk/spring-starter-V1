@@ -44,5 +44,8 @@
           factory-method="of">
         <constructor-arg ref="p1"/>
     </bean>
+
+    <bean class="ru.philimonov.springcourse.bfpp.LogBeanFactoryPostProcessor"/>
+    <bean class="ru.philimonov.springcourse.bfpp.VerifyPropertyBeanFactoryPostProcessor"/>
     <!--    <bean id="connectionPool1" name="p3" class="ru.philimonov.springcourse.database.pool.ConnectionPool"/>-->
 </beans>
