@@ -8,12 +8,13 @@
                             http://www.springframework.org/schema/context/spring-context-4.0.xsd">
 
     <context:property-placeholder location="classpath:application.properties"/>
+
+    <bean class="org.springframework.context.annotation.CommonAnnotationBeanPostProcessor"/>
     <bean id="driver" class="java.lang.String">
         <constructor-arg type="java.lang.String" value="${db.driver}"/>
     </bean>
 
-    <bean id="connectionPool" name="p1, p2, p4" class="ru.philimonov.springcourse.database.pool.ConnectionPool"
-          init-method="init" destroy-method="destroy">
+    <bean id="connectionPool" name="p1, p2, p4" class="ru.philimonov.springcourse.database.pool.ConnectionPool">
 
         <constructor-arg index="0" type="java.lang.String" value="${db.username}"/>
         <constructor-arg index="1" type="java.lang.Integer" value="${db.pool.size}"/>

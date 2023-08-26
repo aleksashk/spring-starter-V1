@@ -1,5 +1,7 @@
 package ru.philimonov.springcourse.database.pool;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 import java.util.List;
 import java.util.Map;
 
@@ -30,10 +32,12 @@ public class ConnectionPool {
         this.properties = properties;
     }
 
+    @PostConstruct
     private void init() {
         System.out.println("Initialization ConnectionPool");
     }
 
+    @PreDestroy
     private void destroy() {
         System.out.println("Destraction ConnectionPool");
     }
