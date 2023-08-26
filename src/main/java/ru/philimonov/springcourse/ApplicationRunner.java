@@ -8,7 +8,7 @@ import ru.philimonov.springcourse.database.pool.ConnectionPool;
 public class ApplicationRunner {
     public static void main(String[] args) {
         ApplicationContext context = new ClassPathXmlApplicationContext("application.xml");
-        System.out.println(context.getBean(ConnectionPool.class));
+        System.out.println(context.getBean("p4", ConnectionPool.class));
 
     }
 }
